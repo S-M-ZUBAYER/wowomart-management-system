@@ -70,7 +70,9 @@ function GeneratorId() {
             name="email"
             render={({ field }) => (
               <FormItem className="w-[80%] ">
-                <FormLabel>Email Address</FormLabel>
+                <FormLabel className="text-[#004368] font-bold ">
+                  Email Address
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Enter your email"

@@ -67,7 +67,9 @@ export function AddPercent({ onSuccess }) {
         className="h-[10vh] flex items-start gap-4 w-[30vw] "
       >
         <div>
-          <label className="block text-sm font-medium mb-1">Percent</label>
+          <label className="block  font-bold mb-1 text-[#004368] ">
+            Percent
+          </label>
           <input
             type="number"
             {...register("percent", { valueAsNumber: true })}

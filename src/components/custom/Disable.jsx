@@ -202,22 +202,22 @@ export function Disable() {
   const handleOpenDialog = (id, type) => {
     setSelectedId(id);
     setDialogType(type);
-    setDialogOpen(true);
+    if (type === "view") {
+      navigate("/seller-details", { state: { id } });
+    } else {
+      setDialogOpen(true);
+    }
   };
 
   const handleAction = () => {
     switch (dialogType) {
-      case "view":
-        setDialogOpen(false);
-        setTimeout(
-          () => navigate("/seller-details", { state: { id: selectedId } }),
-          0
-        );
-        break;
       case "update":
         setDialogOpen(false);
         setTimeout(
-          () => navigate("/update-seller", { state: { id: selectedId } }),
+          () =>
+            navigate("/update-seller", {
+              state: { id: selectedId, route: "/disabled" },
+            }),
           0
         );
         break;
