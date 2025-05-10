@@ -145,7 +145,7 @@ export default function SellerDetailsView() {
 }
 
 const DetailItem = ({ label, value }) => (
-  <p className="text-gray-700 flex flex-col">
+  <p className=" flex flex-col">
     <span className="font-semibold text-[#004368] ">{label}:</span>
     <span className="border-[#D6E6F0] border-[0.1vw] rounded-[4px] p-2 text-[#00000099] ">
       {value}
