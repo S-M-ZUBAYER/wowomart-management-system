@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useNavigate,
 } from "react-router-dom";
 
 import Navbar from "./components/custom/Navbar";
@@ -24,6 +25,7 @@ import Signin from "./components/auth/sign-in";
 import Signup from "./components/auth/sign-up";
 import FourZeroFour from "./components/custom/404";
 import PercentPage from "./components/discount/PercentPage";
+import { useEffect, useState } from "react";
 
 const Layout = ({ children }) => (
   <div className="w-screen h-screen flex flex-col">
@@ -43,11 +45,48 @@ const ProtectedRoute = ({ children }) => {
 };
 const ProtectedAdminRoute = ({ children }) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user, "adimn");
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
-  return user?.admin === 1 ? children : <Navigate to="/log-in" replace />;
+  useEffect(() => {
+    if (!user?.admin) {
+      setShowModal(true);
+    }
+  }, [user]);
+
+  const handleClose = () => {
+    setShowModal(false);
+    navigate("/log-in");
+  };
+
+  if (!user?.admin) {
+    return (
+      <>
+        {showModal && (
+          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-md bg-white border border-gray-300 shadow-2xl rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-red-600 mb-4">
+              Access Denied
+            </h2>
+            <p className="text-gray-700 mb-6 font-semibold">
+              Only Admin can create a new account.
+            </p>
+            <div className="flex justify-center hover:cursor-pointer">
+              <button
+                onClick={handleClose}
+                className="px-4 py-2 font-semibold"
+                style={{ backgroundColor: "#004368", color: "white" }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
+
+  return children;
 };
-
 const App = () => {
   return (
     <Router>
