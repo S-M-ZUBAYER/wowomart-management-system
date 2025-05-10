@@ -19,7 +19,9 @@ export default function PercentList({ percents, onDelete }) {
 
   return (
     <div className="w-[30.5vw] max-h-[50vh] overflow-y-auto space-y-1  custom-scrollbar ">
-      <h2 className="text-lg font-bold mb-4">Available Percent List</h2>
+      <h2 className="text-lg font-bold mb-4  text-[#004368]">
+        Available Percent List
+      </h2>
       {message && (
         <div
           className={`mb-4 text-sm p-2 rounded ${
@@ -40,7 +42,7 @@ export default function PercentList({ percents, onDelete }) {
               key={item.id}
               className="flex justify-between items-center pl-2 mr-2  border rounded h-[3vh] "
             >
-              <span className="text-lg">{item.label}</span>
+              <span className="text-lg text-[#004368]">{item.label}</span>
               <button
                 onClick={() => deletePercent(item.id)}
                 className="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded h-[3vh] justify-center items-center flex "

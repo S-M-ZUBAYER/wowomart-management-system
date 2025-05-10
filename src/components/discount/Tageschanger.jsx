@@ -138,7 +138,9 @@ function TagChangeForm() {
             name="tag"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Select Tag</FormLabel>
+                <FormLabel className="text-[#004368] font-bold ">
+                  Select Tag
+                </FormLabel>
                 <Select
                   value={field.value}
                   onValueChange={(value) => {
@@ -152,12 +154,19 @@ function TagChangeForm() {
                       className="bg-white"
                       style={{ backgroundColor: "white", outline: "none" }}
                     >
-                      <SelectValue placeholder="Select a tag" />
+                      <SelectValue
+                        placeholder="Select a tag"
+                        className="text-[#004368] "
+                      />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
                     {tagsList.map((tag) => (
-                      <SelectItem key={tag.id} value={tag.tag}>
+                      <SelectItem
+                        key={tag.id}
+                        value={tag.tag}
+                        className="text-[#004368]  "
+                      >
                         {tag.title} {`(${tag.percentage}) %`}
                       </SelectItem>
                     ))}

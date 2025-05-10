@@ -101,8 +101,8 @@ export default function SellerDetailsView() {
   } = sellerDetails;
 
   return (
-    <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
-      <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2 mb-4">
+    <div className=" mx-auto bg-white  px-20 mt-10 ">
+      <h2 className="text-2xl font-semibold text-[#004368] border-b pb-2 mb-4">
         Seller Details
       </h2>
       <div className="space-y-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -119,11 +119,13 @@ export default function SellerDetailsView() {
         />
         <DetailItem label="Subscription Status" value={subscriptionStatus} />
         <DetailItem label="Purpose" value={purpose} />
-
+      </div>
+      <div className="w-full flex justify-end">
         {account_creation_status === 0 && (
           <button
             onClick={() => handleAccountCreation(email, paymentId)}
             className="bg-transparent hover:bg-blue-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            style={{ backgroundColor: "#004368", color: "white" }}
           >
             Create Account
           </button>
@@ -143,7 +145,10 @@ export default function SellerDetailsView() {
 }
 
 const DetailItem = ({ label, value }) => (
-  <p className="text-gray-700">
-    <span className="font-semibold">{label}:</span> {value}
+  <p className="text-gray-700 flex flex-col">
+    <span className="font-semibold text-[#004368] ">{label}:</span>
+    <span className="border-[#D6E6F0] border-[0.1vw] rounded-[4px] p-2 text-[#00000099] ">
+      {value}
+    </span>
   </p>
 );

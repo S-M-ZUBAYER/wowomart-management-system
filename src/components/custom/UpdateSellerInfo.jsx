@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import InputField from "./InputField";
+import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = "https://grozziieget.zjweiting.com:8033/tht";
 
@@ -9,9 +11,11 @@ export default function UpdateSellerInfo() {
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState(null);
+  const navigate = useNavigate();
 
   const { state } = useLocation();
   const sellerId = state?.id || "";
+  const route = state?.route || "";
 
   useEffect(() => {
     if (!sellerId) return;
@@ -90,9 +94,9 @@ export default function UpdateSellerInfo() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
-        Update Seller Info
+    <div className=" mx-auto mt-10 p-6 bg-white px-20">
+      <h2 className="text-2xl font-semibold text-[#004368] mb-4 border-b pb-2">
+        Edit details
       </h2>
 
       {feedback && (
@@ -170,10 +174,23 @@ export default function UpdateSellerInfo() {
           onChange={handleChange}
         />
 
-        <div className="sm:col-span-2">
+        <div className="sm:col-span-2 flex justify-end gap-5 items-center">
+          <Button
+            style={{
+              backgroundColor: "white",
+              border: "1.5px solid #004368",
+              color: "#004368",
+              height: "44px",
+              width: "150px",
+            }}
+            onClick={() => navigate(route, { replace: true })}
+          >
+            cancel
+          </Button>
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded transition duration-300"
+            className=" text-white py-2 rounded transition duration-300"
+            style={{ backgroundColor: "#004368" }}
           >
             Update Seller
           </button>
