@@ -136,118 +136,145 @@ function Dashboard({ percents }) {
   );
 
   return (
-    <div className=" h-auto p-6 bg-white rounded-lg shadow-md">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-2 gap-x-6 gap-y-4"
-        >
-          {/* Segment Selector */}
-          <FormField
-            control={form.control}
-            name="segmentQuery"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>User Eligibility</FormLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <FormControl>
-                    <SelectTrigger
-                      style={{
-                        backgroundColor: "white",
-                        outline: "none",
-                        width: "100%",
-                      }}
-                    >
-                      <SelectValue placeholder="Select condition" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {STATUS_OPTIONS.map(({ value, label }) => (
-                      <SelectItem key={value} value={value}>
-                        {label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+    <div>
+      <p className="text-3xl font-bold text-[#004368] border-b-1 border-[#90B4C8] mb-10">
+        Coupon
+      </p>
 
-          <FormField
-            control={form.control}
-            name="title"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Coupon Title</FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter coupon title" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Minimum Item Field */}
-          {segmentValue === "XXX" && (
+      <div className=" h-auto p-6 bg-white rounded-lg ">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="grid grid-cols-2 gap-x-6 gap-y-4"
+          >
+            {/* Segment Selector */}
             <FormField
               control={form.control}
-              name="minimumItem"
+              name="segmentQuery"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Minimum Items</FormLabel>
+                  <FormLabel className="text-[#004368]">
+                    User Eligibility
+                  </FormLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <FormControl>
+                      <SelectTrigger
+                        style={{
+                          backgroundColor: "white",
+                          outline: "none",
+                          width: "100%",
+                        }}
+                      >
+                        <SelectValue placeholder="Select condition" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {STATUS_OPTIONS.map(({ value, label }) => (
+                        <SelectItem key={value} value={value}>
+                          {label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-[#004368]">Coupon Title</FormLabel>
                   <FormControl>
-                    <Input
-                      type="number"
-                      value={field.value ?? ""}
-                      onChange={(e) =>
-                        field.onChange(
-                          e.target.value ? Number(e.target.value) : undefined
-                        )
-                      }
-                      placeholder="Enter item number"
-                    />
+                    <Input placeholder="Enter coupon title" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-          )}
 
-          {/* Minimum Amount Field */}
-          {segmentValue === "xxx" && (
-            <FormField
-              control={form.control}
-              name="minimumAmount"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Minimum Amount</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="number"
-                      value={field.value ?? ""}
-                      onChange={(e) =>
-                        field.onChange(
-                          e.target.value ? Number(e.target.value) : undefined
-                        )
-                      }
-                      placeholder="Enter minimum amount"
+            {/* Minimum Item Field */}
+            {segmentValue === "XXX" && (
+              <FormField
+                control={form.control}
+                name="minimumItem"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Minimum Items</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        value={field.value ?? ""}
+                        onChange={(e) =>
+                          field.onChange(
+                            e.target.value ? Number(e.target.value) : undefined
+                          )
+                        }
+                        placeholder="Enter item number"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
+            {/* Minimum Amount Field */}
+            {segmentValue === "xxx" && (
+              <FormField
+                control={form.control}
+                name="minimumAmount"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Minimum Amount</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        value={field.value ?? ""}
+                        onChange={(e) =>
+                          field.onChange(
+                            e.target.value ? Number(e.target.value) : undefined
+                          )
+                        }
+                        placeholder="Enter minimum amount"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
+            {/* discount End Date */}
+            {segmentValue === "customer_added_date <= " && (
+              <FormField
+                control={form.control}
+                name="discountEnd"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Discount Eligibility Date</FormLabel>
+                    <Datepicker
+                      value={field.value}
+                      onChange={field.onChange}
+                      placeholder="Pick a date"
                     />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          )}
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
 
-          {/* discount End Date */}
-          {segmentValue === "customer_added_date <= " && (
+            {/* Expiry Date */}
             <FormField
               control={form.control}
-              name="discountEnd"
+              name="expireDate"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Discount Eligibility Date</FormLabel>
+                  <FormLabel className="text-[#004368]">
+                    Expiration Date
+                  </FormLabel>
                   <Datepicker
                     value={field.value}
                     onChange={field.onChange}
@@ -257,82 +284,65 @@ function Dashboard({ percents }) {
                 </FormItem>
               )}
             />
-          )}
 
-          {/* Expiry Date */}
-          <FormField
-            control={form.control}
-            name="expireDate"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Expiration Date</FormLabel>
-                <Datepicker
-                  value={field.value}
-                  onChange={field.onChange}
-                  placeholder="Pick a date"
-                />
-                <FormMessage />
-              </FormItem>
+            {/* Discount Selector */}
+            <FormField
+              control={form.control}
+              name="percentage"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-[#004368]">Discount</FormLabel>
+                  <Select
+                    onValueChange={(val) => field.onChange(Number(val))}
+                    value={field.value?.toString() || ""}
+                  >
+                    <FormControl>
+                      <SelectTrigger
+                        style={{
+                          backgroundColor: "white",
+                          outline: "none",
+                          width: "100%",
+                        }}
+                      >
+                        <SelectValue placeholder="Select percentage" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {percents.map(({ value, label }) => (
+                        <SelectItem key={value} value={value.toString()}>
+                          {label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Submit Feedback */}
+            {message.text && (
+              <p
+                className={`text-sm mt-1 ${
+                  message.type === "success" ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {message.text}
+              </p>
             )}
-          />
-
-          {/* Discount Selector */}
-          <FormField
-            control={form.control}
-            name="percentage"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Discount</FormLabel>
-                <Select
-                  onValueChange={(val) => field.onChange(Number(val))}
-                  value={field.value?.toString() || ""}
-                >
-                  <FormControl>
-                    <SelectTrigger
-                      style={{
-                        backgroundColor: "white",
-                        outline: "none",
-                        width: "100%",
-                      }}
-                    >
-                      <SelectValue placeholder="Select percentage" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {percents.map(({ value, label }) => (
-                      <SelectItem key={value} value={value.toString()}>
-                        {label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Submit Feedback */}
-          {message.text && (
-            <p
-              className={`text-sm mt-1 ${
-                message.type === "success" ? "text-green-600" : "text-red-600"
-              }`}
+            <div></div>
+            {/* Submit Button */}
+            <Button
+              type="submit"
+              className="w-full mt-5"
+              disabled={form.formState.isSubmitting}
+              style={{ backgroundColor: "#004368", color: "white" }}
             >
-              {message.text}
-            </p>
-          )}
-
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={form.formState.isSubmitting}
-            style={{ backgroundColor: "#004368", color: "white" }}
-          >
-            {form.formState.isSubmitting ? "Submitting..." : "Submit"}
-          </Button>
-        </form>
-      </Form>
+              {form.formState.isSubmitting ? "Submitting..." : "Submit"}
+            </Button>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 }

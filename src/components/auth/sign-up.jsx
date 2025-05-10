@@ -144,7 +144,7 @@ export default function Signup() {
             </Form>
           </div>
           <div className="mt-10">
-            <NavLink to={"/login"}>Already have an account?</NavLink>
+            <NavLink to={"/log-in"}>Already have an account?</NavLink>
           </div>
         </div>
       </div>

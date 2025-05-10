@@ -11,6 +11,8 @@ import { format } from "date-fns";
 import { Button } from "../ui/button";
 
 function Datepicker({ value, onChange, placeholder }) {
+  console.log("datepickewr");
+
   return (
     <>
       <Popover>
@@ -21,7 +23,7 @@ function Datepicker({ value, onChange, placeholder }) {
           <Button
             variant="destructive"
             className={cn(
-              "w-[240px] justify-start text-left font-normal",
+              "w-[700px] justify-start text-left font-normal",
               !value && "text-muted-foreground bg-transparent"
             )}
           >

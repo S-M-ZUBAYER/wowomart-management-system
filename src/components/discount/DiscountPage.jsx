@@ -24,7 +24,7 @@ function DiscountPage() {
   }, []);
   return (
     <>
-      <div className="flex w-full justify-center mt-10">
+      <div className="mx-16">
         <div>
           <Dashboard percents={percents} />
         </div>

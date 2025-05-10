@@ -18,7 +18,7 @@ export default function PercentList({ percents, onDelete }) {
   };
 
   return (
-    <div className="w-[30vw] max-h-[50vh] overflow-y-auto space-y-1  custom-scrollbar ">
+    <div className="w-[30.5vw] max-h-[50vh] overflow-y-auto space-y-1  custom-scrollbar ">
       <h2 className="text-lg font-bold mb-4">Percent List</h2>
       {message && (
         <div
@@ -38,7 +38,7 @@ export default function PercentList({ percents, onDelete }) {
           {percents.map((item) => (
             <li
               key={item.id}
-              className="flex justify-between items-center p-2 border rounded h-[3vh] "
+              className="flex justify-between items-center pl-2 mr-2  border rounded h-[3vh] "
             >
               <span className="text-lg">{item.label}</span>
               <button

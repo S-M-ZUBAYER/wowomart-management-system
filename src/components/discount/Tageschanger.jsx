@@ -125,7 +125,7 @@ function TagChangeForm() {
     <div className="w-[30vw] max-w-full px-6">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="max-h-48 overflow-y-auto space-y-1 pl-3 custom-scrollbar">
+          <div className="max-h-48 overflow-y-auto space-y-1 pl-3">
             {inputValue.map(({ email }, index) => (
               <p key={index} className="text-[#90B4C8]">
                 {index + 1}. {email}
