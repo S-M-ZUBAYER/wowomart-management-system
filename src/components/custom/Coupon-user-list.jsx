@@ -191,22 +191,19 @@ export function CouponUserList() {
   const handleOpenDialog = (id, customerId, customerTag, type) => {
     setSelectedId(id);
     setDialogType(type);
-    setDialogOpen(true);
     setCouponUser({
       customerId: customerId,
       customerTag: customerTag,
     });
+    if (type === "view") {
+      navigate("/coupon-user-details", { state: { id } });
+    } else {
+      setDialogOpen(true);
+    }
   };
 
   const handleAction = () => {
     switch (dialogType) {
-      case "view":
-        setDialogOpen(false);
-        setTimeout(
-          () => navigate("/coupon-user-details", { state: { id: selectedId } }),
-          0
-        );
-        break;
       case "update":
         setDialogOpen(false);
         setTimeout(
