@@ -41,6 +41,12 @@ const ProtectedRoute = ({ children }) => {
   const user = JSON.parse(localStorage.getItem("user"));
   return user ? children : <Navigate to="/log-in" replace />;
 };
+const ProtectedAdminRoute = ({ children }) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user, "adimn");
+
+  return user?.admin === 1 ? children : <Navigate to="/log-in" replace />;
+};
 
 const App = () => {
   return (
@@ -48,7 +54,15 @@ const App = () => {
       <Layout>
         <Routes>
           <Route path="/log-in" element={<Signin />} />
-          <Route path="/sign-up" element={<Signup />} />
+          {/* <Route path="/sign-up" element={<Signup />} /> */}
+          <Route
+            path="/sign-up"
+            element={
+              <ProtectedAdminRoute>
+                <Signup />
+              </ProtectedAdminRoute>
+            }
+          />
           <Route
             path="/"
             element={
