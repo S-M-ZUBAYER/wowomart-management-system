@@ -1,0 +1,37 @@
+import { useState, useEffect } from "react";
+import Dashboard from "./Dashboard";
+import { AddPercent } from "./AddPercent";
+import PercentList from "./PercentList";
+import axios from "axios";
+
+function PercentPage() {
+  const [percents, setPercents] = useState([]);
+
+  const fetchPercents = async () => {
+    try {
+      const res = await axios.get(
+        "https://grozziie.zjweiting.com:57683/tht/allDiscountPercent"
+      );
+      const sorted = res.data.result.sort((a, b) => a.value - b.value);
+      setPercents(sorted);
+    } catch (err) {
+      console.error("Failed to fetch percents:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchPercents();
+  }, []);
+  return (
+    <>
+      <div className="flex w-full justify-center">
+        <div>
+          <AddPercent onSuccess={fetchPercents} />
+          <PercentList percents={percents} onDelete={fetchPercents} />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default PercentPage;
