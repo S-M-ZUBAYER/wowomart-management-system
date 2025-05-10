@@ -177,18 +177,15 @@ export function Pending() {
   const handleOpenDialog = (id, type) => {
     setSelectedId(id);
     setDialogType(type);
-    setDialogOpen(true);
+    if (type === "view") {
+      navigate("/seller-details", { state: { id, route: "/pending" } });
+    } else {
+      setDialogOpen(true);
+    }
   };
 
   const handleAction = () => {
     switch (dialogType) {
-      case "view":
-        setDialogOpen(false);
-        setTimeout(
-          () => navigate("/seller-details", { state: { id: selectedId } }),
-          0
-        );
-        break;
       case "update":
         setDialogOpen(false);
         setTimeout(
