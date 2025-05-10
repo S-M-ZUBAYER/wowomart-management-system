@@ -178,7 +178,7 @@ export function Pending() {
     setSelectedId(id);
     setDialogType(type);
     if (type === "view") {
-      navigate("/seller-details", { state: { id, route: "/pending" } });
+      navigate("/seller-details", { state: { id } });
     } else {
       setDialogOpen(true);
     }
