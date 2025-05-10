@@ -19,7 +19,7 @@ export default function PercentList({ percents, onDelete }) {
 
   return (
     <div className="w-[30.5vw] max-h-[50vh] overflow-y-auto space-y-1  custom-scrollbar ">
-      <h2 className="text-lg font-bold mb-4">Percent List</h2>
+      <h2 className="text-lg font-bold mb-4">Available Percent List</h2>
       {message && (
         <div
           className={`mb-4 text-sm p-2 rounded ${
