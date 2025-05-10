@@ -117,7 +117,7 @@ export default function Signin() {
           </Form>
         </div>
         <div className="mt-10">
-          <NavLink to={"/signup"}>{"Don't"} have an account?</NavLink>
+          <NavLink to={"/sign-up"}>{"Don't"} have an account?</NavLink>
         </div>
       </div>
     </div>
