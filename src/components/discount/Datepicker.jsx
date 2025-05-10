@@ -11,14 +11,12 @@ import { format } from "date-fns";
 import { Button } from "../ui/button";
 
 function Datepicker({ value, onChange, placeholder }) {
-  console.log("datepickewr");
-
   return (
     <>
       <Popover>
         <PopoverTrigger
           asChild
-          style={{ backgroundColor: "white", color: "black" }}
+          style={{ backgroundColor: "white", color: "#004368" }}
         >
           <Button
             variant="destructive"

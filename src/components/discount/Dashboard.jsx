@@ -153,7 +153,7 @@ function Dashboard({ percents }) {
               name="segmentQuery"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[#004368]">
+                  <FormLabel className="text-[#004368] font-semibold">
                     User Eligibility
                   </FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
@@ -163,6 +163,9 @@ function Dashboard({ percents }) {
                           backgroundColor: "white",
                           outline: "none",
                           width: "100%",
+                          fontFamily: "sans-serif",
+                          color: "#004368",
+                          fontSize: "15.5px",
                         }}
                       >
                         <SelectValue placeholder="Select condition" />
@@ -170,7 +173,11 @@ function Dashboard({ percents }) {
                     </FormControl>
                     <SelectContent>
                       {STATUS_OPTIONS.map(({ value, label }) => (
-                        <SelectItem key={value} value={value}>
+                        <SelectItem
+                          key={value}
+                          value={value}
+                          className="text-[#004368]"
+                        >
                           {label}
                         </SelectItem>
                       ))}
@@ -186,9 +193,19 @@ function Dashboard({ percents }) {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[#004368]">Coupon Title</FormLabel>
+                  <FormLabel className="text-[#004368] font-semibold ">
+                    Coupon Title
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter coupon title" {...field} />
+                    <Input
+                      placeholder="Enter coupon title"
+                      style={{
+                        fontFamily: "sans-serif",
+                        color: "#004368",
+                        fontSize: "15.5px",
+                      }}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -202,7 +219,9 @@ function Dashboard({ percents }) {
                 name="minimumItem"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Minimum Items</FormLabel>
+                    <FormLabel className="text-[#004368] font-semibold ">
+                      Minimum Items
+                    </FormLabel>
                     <FormControl>
                       <Input
                         type="number"
@@ -213,6 +232,11 @@ function Dashboard({ percents }) {
                           )
                         }
                         placeholder="Enter item number"
+                        style={{
+                          fontFamily: "sans-serif",
+                          color: "#004368",
+                          fontSize: "15.5px",
+                        }}
                       />
                     </FormControl>
                     <FormMessage />
@@ -228,7 +252,9 @@ function Dashboard({ percents }) {
                 name="minimumAmount"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Minimum Amount</FormLabel>
+                    <FormLabel className="text-[#004368] font-semibold ">
+                      Minimum Amount
+                    </FormLabel>
                     <FormControl>
                       <Input
                         type="number"
@@ -239,6 +265,11 @@ function Dashboard({ percents }) {
                           )
                         }
                         placeholder="Enter minimum amount"
+                        style={{
+                          fontFamily: "sans-serif",
+                          color: "#004368",
+                          fontSize: "15.5px",
+                        }}
                       />
                     </FormControl>
                     <FormMessage />
@@ -254,7 +285,9 @@ function Dashboard({ percents }) {
                 name="discountEnd"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Discount Eligibility Date</FormLabel>
+                    <FormLabel className="text-[#004368] font-semibold">
+                      Discount Eligibility Date
+                    </FormLabel>
                     <Datepicker
                       value={field.value}
                       onChange={field.onChange}
@@ -272,7 +305,7 @@ function Dashboard({ percents }) {
               name="expireDate"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[#004368]">
+                  <FormLabel className="text-[#004368] font-semibold">
                     Expiration Date
                   </FormLabel>
                   <Datepicker
@@ -291,7 +324,9 @@ function Dashboard({ percents }) {
               name="percentage"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[#004368]">Discount</FormLabel>
+                  <FormLabel className="text-[#004368] font-semibold">
+                    Discount
+                  </FormLabel>
                   <Select
                     onValueChange={(val) => field.onChange(Number(val))}
                     value={field.value?.toString() || ""}
@@ -302,6 +337,8 @@ function Dashboard({ percents }) {
                           backgroundColor: "white",
                           outline: "none",
                           width: "100%",
+                          fontFamily: "sans-serif",
+                          color: "#004368",
                         }}
                       >
                         <SelectValue placeholder="Select percentage" />
@@ -309,7 +346,11 @@ function Dashboard({ percents }) {
                     </FormControl>
                     <SelectContent>
                       {percents.map(({ value, label }) => (
-                        <SelectItem key={value} value={value.toString()}>
+                        <SelectItem
+                          key={value}
+                          value={value.toString()}
+                          className="text-[#004368] "
+                        >
                           {label}
                         </SelectItem>
                       ))}
