@@ -3,6 +3,7 @@ import Dashboard from "./Dashboard";
 import { AddPercent } from "./AddPercent";
 import PercentList from "./PercentList";
 import axios from "axios";
+import AmountConvertedToPercentage from "./AmountConvertedToPercentage";
 
 function PercentPage() {
   const [percents, setPercents] = useState([]);
@@ -24,11 +25,12 @@ function PercentPage() {
   }, []);
   return (
     <>
-      <div className="flex w-full justify-center">
+      <div className="w-full lg:grid lg:grid-cols-2 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">
         <div>
           <AddPercent onSuccess={fetchPercents} />
           <PercentList percents={percents} onDelete={fetchPercents} />
         </div>
+        <AmountConvertedToPercentage></AmountConvertedToPercentage>
       </div>
     </>
   );

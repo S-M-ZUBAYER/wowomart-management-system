@@ -67,9 +67,12 @@ export function AddPercent({ onSuccess }) {
         className="h-[10vh] flex items-start gap-4 w-[30vw] "
       >
         <div>
-          <label className="block text-sm font-medium mb-1">Percent</label>
+          <label className="block font-bold mb-1 text-[#004368] ">
+            Percent
+          </label>
           <input
             type="number"
+            step="any" // ✅ Allows float inputs
             {...register("percent", { valueAsNumber: true })}
             placeholder="Enter percent"
             className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-120"
