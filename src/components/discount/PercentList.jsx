@@ -18,7 +18,7 @@ export default function PercentList({ percents, onDelete }) {
   };
 
   return (
-    <div className="w-[30.5vw] max-h-[50vh] overflow-y-auto space-y-1  custom-scrollbar ">
+    <div className="w-[28vw] max-h-[50vh] overflow-y-auto space-y-1  custom-scrollbar ">
       <h2 className="text-lg font-bold mb-4  text-[#004368]">
         Available Percent List
       </h2>
