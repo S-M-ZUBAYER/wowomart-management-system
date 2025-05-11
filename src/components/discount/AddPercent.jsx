@@ -68,7 +68,7 @@ export function AddPercent({ onSuccess }) {
       >
         <div>
           <label className="block font-bold mb-1 text-[#004368] ">
-            Percent
+            Add Percent
           </label>
           <input
             type="number"
