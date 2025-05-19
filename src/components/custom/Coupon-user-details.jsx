@@ -16,9 +16,9 @@ const CouponUserDetails = () => {
     const fetchSellerDetails = async () => {
       try {
         const response = await axios.get(
-          `https://grozziie.zjweiting.com:57683/tht/shopify/couponUserList/${userID}`
+          `https://grozziie.zjweiting.com:57683/wowomart/api/shopify/couponUserList/${userID}`
         );
-        const sellerData = response?.data?.result.result || [];
+        const sellerData = response?.data?.result || [];
         setCouponUser(sellerData);
       } catch (error) {
         console.error("Error fetching seller details:", error);

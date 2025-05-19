@@ -30,7 +30,7 @@ export function AddPercent({ onSuccess }) {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        "https://grozziie.zjweiting.com:57683/tht/discountPercent/create",
+        "https://grozziie.zjweiting.com:57683/wowomart/api/discountPercent/create",
         {
           value: data.percent,
           label: `${data.percent}%`,

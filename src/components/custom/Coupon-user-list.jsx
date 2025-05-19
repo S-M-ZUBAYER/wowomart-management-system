@@ -172,9 +172,9 @@ export function CouponUserList() {
         setLoading(true);
         setError(null);
         const response = await axios.get(
-          "https://grozziie.zjweiting.com:57683/tht/shopify/allCouponUserList"
+          "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/allCouponUserList"
         );
-        const result = response.data.result.result || [];
+        const result = response.data.result || [];
 
         setApiData(result);
       } catch (err) {
@@ -214,7 +214,7 @@ export function CouponUserList() {
       case "delete":
         axios
           .post(
-            "https://grozziie.zjweiting.com:57683/tht/shopify/deleteAndUpdate",
+            "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/deleteAndUpdate",
             {
               id: selectedId,
               customerId: couponUser.customerId,

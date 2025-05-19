@@ -172,7 +172,7 @@ export function DiscountTable() {
         setLoading(true);
         setError(null);
         const response = await axios.get(
-          "https://grozziie.zjweiting.com:57683/tht/shopify/segment-discounts"
+          "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/segment-discounts"
         );
         const result = response.data.data || [];
 
@@ -199,6 +199,8 @@ export function DiscountTable() {
   };
 
   const handleAction = () => {
+    console.log(selectedId, "discountId");
+
     switch (dialogType) {
       case "update":
         setDialogOpen(false);
@@ -210,7 +212,7 @@ export function DiscountTable() {
       case "delete":
         axios
           .post(
-            "https://grozziie.zjweiting.com:57683/tht/shopify/discount/delete",
+            "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/discount/delete",
             {
               discountId: selectedId,
             }
