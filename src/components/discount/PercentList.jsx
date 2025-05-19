@@ -7,7 +7,7 @@ export default function PercentList({ percents, onDelete }) {
   const deletePercent = async (id) => {
     try {
       await axios.post(
-        `https://grozziie.zjweiting.com:57683/wowomart/api/discountPercent/delete/${id}`
+        `https://grozziie.zjweiting.com:57683/tht/wowomart/api/discountPercent/delete/${id}`
       );
       onDelete();
       setMessage({ type: "success", text: `✅ Deleted percent` });
@@ -18,10 +18,11 @@ export default function PercentList({ percents, onDelete }) {
   };
 
   return (
-    <div className="w-[28vw] max-h-[50vh] overflow-y-auto space-y-1  custom-scrollbar ">
-      <h2 className="text-lg font-bold mb-4  text-[#004368]">
+    <div className="w-full md:w-[28vw] max-h-[50vh] overflow-y-auto space-y-1 custom-scrollbar">
+      <h2 className="text-lg font-bold mb-4 text-[#004368]">
         Available Percent List
       </h2>
+
       {message && (
         <div
           className={`mb-4 text-sm p-2 rounded ${
@@ -33,6 +34,7 @@ export default function PercentList({ percents, onDelete }) {
           {message.text}
         </div>
       )}
+
       {percents.length === 0 ? (
         <p>No percents found.</p>
       ) : (
@@ -40,13 +42,13 @@ export default function PercentList({ percents, onDelete }) {
           {percents.map((item) => (
             <li
               key={item.id}
-              className="flex justify-between items-center pl-2 mr-2  border rounded h-[3vh] "
+              className="flex justify-between items-center pl-2 pr-2 border rounded h-auto min-h-[40px]"
             >
-              <span className="text-lg text-[#004368]">{item.label}</span>
+              <span className="text-base text-[#004368]">{item.label}</span>
               <button
                 onClick={() => deletePercent(item.id)}
-                className="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded h-[3vh] justify-center items-center flex "
-                style={{ backgroundColor: "#004368", color: "#fffff" }}
+                className="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded flex items-center justify-center"
+                style={{ backgroundColor: "#004368", color: "#ffffff" }}
               >
                 Delete
               </button>

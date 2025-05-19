@@ -30,7 +30,7 @@ export function AddPercent({ onSuccess }) {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        "https://grozziie.zjweiting.com:57683/wowomart/api/discountPercent/create",
+        "https://grozziie.zjweiting.com:57683/tht/wowomart/api/discountPercent/create",
         {
           value: data.percent,
           label: `${data.percent}%`,
@@ -64,18 +64,18 @@ export function AddPercent({ onSuccess }) {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="h-[10vh] flex items-start gap-4 w-[30vw] "
+        className="flex flex-col md:flex-row items-start gap-2 md:gap-4 w-full md:w-[30vw] h-auto md:h-[10vh]"
       >
-        <div>
-          <label className="block font-bold mb-1 text-[#004368] ">
+        <div className="w-full">
+          <label className="block font-bold mb-1 text-[#004368]">
             Add Percent
           </label>
           <input
             type="number"
-            step="any" // ✅ Allows float inputs
+            step="any"
             {...register("percent", { valueAsNumber: true })}
             placeholder="Enter percent"
-            className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-120"
+            className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
           />
           {errors.percent && (
             <p className="text-red-500 text-sm mt-1">
@@ -83,16 +83,17 @@ export function AddPercent({ onSuccess }) {
             </p>
           )}
         </div>
-        <div className="pt-6">
+        <div className="pt-2 md:pt-6 w-full md:w-auto">
           <button
             type="submit"
-            className=" text-white px-4 py-2 rounded hover:bg-gray-800"
-            style={{ backgroundColor: "#004368", color: "#fffff" }}
+            className="w-full md:w-auto text-white px-4 py-2 rounded hover:bg-gray-800"
+            style={{ backgroundColor: "#004368" }}
           >
             Add
           </button>
         </div>
       </form>
+
       {message.text && (
         <p
           className={`text-sm mt-1 ${

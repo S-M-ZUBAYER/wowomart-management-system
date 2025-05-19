@@ -12,7 +12,7 @@ function AssignTag() {
           </p>
         </div>
         <div className="w-full  flex justify-center mt-10">
-          <div className="flex flex-col  py-5 rounded-b-md  bg-white shadow-xl w-max ">
+          <div className="flex flex-col  py-5 rounded-b-md  bg-white shadow-xl w-max p-10 ">
             <GeneratorId />
             <TagChangeForm />
           </div>

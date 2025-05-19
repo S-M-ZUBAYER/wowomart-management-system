@@ -43,6 +43,7 @@ import { useNavigate } from "react-router-dom";
 import { SquarePen, NotebookText, Trash2 } from "lucide-react";
 import formatDateTimeAMPM from "@/lib/formatDateTimeAMPM";
 import image from "@/constants/image";
+import toast from "react-hot-toast";
 
 const columns = (handleOpenDialog) => [
   {
@@ -172,7 +173,7 @@ export function DiscountTable() {
         setLoading(true);
         setError(null);
         const response = await axios.get(
-          "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/segment-discounts"
+          "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/segment-discounts"
         );
         const result = response.data.data || [];
 
@@ -212,7 +213,7 @@ export function DiscountTable() {
       case "delete":
         axios
           .post(
-            "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/discount/delete",
+            "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/discount/delete",
             {
               discountId: selectedId,
             }
@@ -222,10 +223,12 @@ export function DiscountTable() {
             setApiData((prevData) =>
               prevData.filter((item) => item.discountId !== selectedId)
             );
+            toast.success("Discount deleted successfully");
           })
           .catch((error) => {
             console.error("Error deleting seller:", error);
             setDialogOpen(false);
+            toast.error("Failed to delete discount");
           });
         break;
       default:

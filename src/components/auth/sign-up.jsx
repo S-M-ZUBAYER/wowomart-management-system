@@ -45,7 +45,7 @@ export default function Signup() {
 
     try {
       const res = await fetch(
-        "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/register",
+        "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -49,25 +49,25 @@ const STATUS_OPTIONS = [
     value: "customer_tags CONTAINS",
     label: "Equal Tag Name",
     ApiUrl:
-      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/segment-discount",
+      "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/segment-discount",
   },
   {
     value: "customer_added_date <= ",
     label: "Account Duration",
     ApiUrl:
-      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/segment-discount",
+      "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/segment-discount",
   },
   {
     value: "xxx",
     label: "Minimum Amount",
     ApiUrl:
-      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/create-discount",
+      "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/create-discount",
   },
   {
     value: "XXX",
     label: "Minimum item",
     ApiUrl:
-      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/create-discount",
+      "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/create-discount",
   },
 ];
 
@@ -149,7 +149,7 @@ function Dashboard({ percents }) {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="grid grid-cols-2 gap-x-6 gap-y-4"
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4"
           >
             {/* Segment Selector */}
             <FormField
