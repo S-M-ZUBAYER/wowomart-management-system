@@ -5,7 +5,7 @@ import InputField from "./InputField";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = "https://grozziieget.zjweiting.com:8033/tht";
+const API_BASE_URL = "https://grozziieget.zjweiting.com:8033/tht/wowomart/api";
 
 export default function UpdateSellerInfo() {
   const [formData, setFormData] = useState({});

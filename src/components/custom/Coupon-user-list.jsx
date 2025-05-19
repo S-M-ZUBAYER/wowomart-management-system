@@ -204,6 +204,8 @@ export function CouponUserList() {
   };
 
   const handleAction = () => {
+    console.log("call");
+
     switch (dialogType) {
       case "update":
         setDialogOpen(false);
