@@ -29,7 +29,7 @@ export default function Signin() {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://grozziie.zjweiting.com:57683/tht/shopify/login",
+        "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

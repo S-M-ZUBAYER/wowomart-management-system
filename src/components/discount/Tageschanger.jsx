@@ -47,7 +47,7 @@ function TagChangeForm() {
     const fetchTags = async () => {
       try {
         const response = await axios.get(
-          "https://grozziie.zjweiting.com:57683/tht/shopify/coupons-by-tag"
+          "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/coupons-by-tag"
         );
 
         setTagsList(response.data.result);
@@ -71,7 +71,7 @@ function TagChangeForm() {
       await Promise.all(
         inputValue.map(({ id }) =>
           axios.post(
-            "https://grozziie.zjweiting.com:57683/tht/shopify/update",
+            "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/update",
             {
               update: 1,
               customerId: Number(id),
@@ -87,7 +87,7 @@ function TagChangeForm() {
           inputValue.map(({ email, id }) =>
             email
               ? axios.post(
-                  "https://grozziie.zjweiting.com:57683/tht/shopify/couponUserList/create",
+                  "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/couponUserList/create",
                   {
                     title: selectedTag.title,
                     percentage: selectedTag.percentage,

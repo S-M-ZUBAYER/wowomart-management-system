@@ -48,22 +48,26 @@ const STATUS_OPTIONS = [
   {
     value: "customer_tags CONTAINS",
     label: "Equal Tag Name",
-    ApiUrl: "https://grozziie.zjweiting.com:57683/tht/shopify/segment-discount",
+    ApiUrl:
+      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/segment-discount",
   },
   {
     value: "customer_added_date <= ",
     label: "Account Duration",
-    ApiUrl: "https://grozziie.zjweiting.com:57683/tht/shopify/segment-discount",
+    ApiUrl:
+      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/segment-discount",
   },
   {
     value: "xxx",
     label: "Minimum Amount",
-    ApiUrl: "https://grozziie.zjweiting.com:57683/tht/shopify/create-discount",
+    ApiUrl:
+      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/create-discount",
   },
   {
     value: "XXX",
     label: "Minimum item",
-    ApiUrl: "https://grozziie.zjweiting.com:57683/tht/shopify/create-discount",
+    ApiUrl:
+      "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/create-discount",
   },
 ];
 
