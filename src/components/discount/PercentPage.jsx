@@ -30,7 +30,7 @@ function PercentPage() {
           <AddPercent onSuccess={fetchPercents} />
           <PercentList percents={percents} onDelete={fetchPercents} />
         </div>
-        <AmountConvertedToPercentage></AmountConvertedToPercentage>
+        <AmountConvertedToPercentage />
       </div>
     </>
   );

@@ -30,11 +30,12 @@ import { useEffect, useState } from "react";
 const Layout = ({ children }) => (
   <div className="w-screen h-screen flex flex-col">
     <Navbar />
-    <div className="flex flex-1 overflow-hidden">
-      <aside className="w-[15%] p-4">
+
+    <div className="flex flex-1 overflow-hidden flex-col xl:flex-row">
+      <aside className="w-full xl:w-[15%] ">
         <Sidebar />
       </aside>
-      <main className="w-[85%] p-4 overflow-y-auto">{children}</main>
+      <main className="flex-1 p-4 overflow-y-auto">{children}</main>
     </div>
   </div>
 );

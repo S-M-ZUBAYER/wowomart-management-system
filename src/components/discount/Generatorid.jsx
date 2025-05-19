@@ -62,15 +62,18 @@ function GeneratorId() {
   );
 
   return (
-    <div className=" w-[30vw] h-auto px-7 gap-1 max-w-full ">
+    <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-2">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col sm:flex-row gap-2"
+        >
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="w-[80%] ">
-                <FormLabel className="text-[#004368] font-bold ">
+              <FormItem className="flex-1">
+                <FormLabel className="text-[#004368] font-bold">
                   Email Address
                 </FormLabel>
                 <FormControl>
@@ -78,6 +81,12 @@ function GeneratorId() {
                     placeholder="Enter your email"
                     {...field}
                     disabled={form.formState.isSubmitting}
+                    style={{
+                      backgroundColor: "transparent",
+                      outline: "none",
+                      border: "1px solid #004368",
+                      color: "#004368",
+                    }}
                   />
                 </FormControl>
                 {message.text && (
@@ -99,7 +108,7 @@ function GeneratorId() {
             type="submit"
             disabled={form.formState.isSubmitting}
             style={{ backgroundColor: "#004368", color: "white" }}
-            className="mt-5"
+            className="mt-2 sm:mt-6"
           >
             {form.formState.isSubmitting ? "Fetching..." : "Add Email"}
           </Button>

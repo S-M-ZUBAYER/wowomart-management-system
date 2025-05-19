@@ -43,6 +43,7 @@ import { useNavigate } from "react-router-dom";
 import { SquarePen, NotebookText, Trash2 } from "lucide-react";
 import formatDateTimeAMPM from "@/lib/formatDateTimeAMPM";
 import image from "@/constants/image";
+import toast from "react-hot-toast";
 
 const columns = (handleOpenDialog) => [
   {
@@ -222,10 +223,12 @@ export function DiscountTable() {
             setApiData((prevData) =>
               prevData.filter((item) => item.discountId !== selectedId)
             );
+            toast.success("Discount deleted successfully");
           })
           .catch((error) => {
             console.error("Error deleting seller:", error);
             setDialogOpen(false);
+            toast.error("Failed to delete discount");
           });
         break;
       default:

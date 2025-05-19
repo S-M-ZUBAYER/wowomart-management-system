@@ -19,7 +19,7 @@ export default function AmountConvertedToPercentage() {
   };
 
   return (
-    <div className=" w-[500px] mx-auto mt-10 p-6 bg-white rounded-2xl shadow-md space-y-4 border border-gray-200">
+    <div className="w-full max-w-[500px] mx-auto mt-10 p-6 bg-white rounded-2xl shadow-md space-y-4 border border-gray-200">
       <h2 className="text-lg font-bold text-[#004368]">
         Discount Percentage Calculator
       </h2>
@@ -49,11 +49,12 @@ export default function AmountConvertedToPercentage() {
           className="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
+
       <div className="w-full">
         <button
           onClick={convertToPercentage}
           className="w-full bg-[#004368] hover:bg-blue-700 text-white font-semibold py-2 rounded-lg"
-          style={{ backgroundColor: "#004368", color: "#fffff" }}
+          style={{ backgroundColor: "#004368", color: "#ffffff" }}
         >
           Convert to Percentage
         </button>

@@ -72,18 +72,14 @@ function HomeCharts() {
         </div>
       </div>
 
-      {/* Sellers by Location Pie Chart */}
-      <div className="flex gap-4">
-        <div className="bg-white p-5 rounded-lg shadow-sm w-[50%] ">
+      {/* Sellers by Location & Yearly Subscription */}
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* Pie Chart */}
+        <div className="bg-white p-5 rounded-lg shadow-sm w-full md:w-1/2">
           <h2 className="font-semibold text-gray-800 mb-4">
             Sellers by Location
           </h2>
-          <div
-            style={{
-              width: "100%",
-              height: 300,
-            }}
-          >
+          <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <PieChart>
                 <Pie
@@ -108,8 +104,8 @@ function HomeCharts() {
           </div>
         </div>
 
-        {/* Yearly Subscription Bar Chart */}
-        <div className="bg-white p-5 rounded-lg shadow-sm w-[50%] ">
+        {/* Bar Chart */}
+        <div className="bg-white p-5 rounded-lg shadow-sm w-full md:w-1/2">
           <h2 className="font-semibold text-gray-800 mb-4">
             Yearly Subscription
           </h2>

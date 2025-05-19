@@ -149,7 +149,7 @@ function Dashboard({ percents }) {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="grid grid-cols-2 gap-x-6 gap-y-4"
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4"
           >
             {/* Segment Selector */}
             <FormField

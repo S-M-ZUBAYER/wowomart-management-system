@@ -43,27 +43,27 @@ function Home() {
   }, []);
 
   return (
-    <div className="p-5 space-y-10 w-full flex gap-5">
-      <div className="w-[80%]  ">
+    <div className="p-5 space-y-10 w-full flex flex-col md:flex-row gap-5">
+      <div className="w-full md:w-[80%]">
         <h1 className="font-[600] text-gray-800">Overview</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-blue-100 p-6 rounded-lg text-center">
             <h2 className="text-gray-700 mb-2">Pending Account</h2>
             <p className="text-3xl font-bold text-blue-900">
-              {pending.pendingAccount}{" "}
+              {pending.pendingAccount}
             </p>
           </div>
           <div className="bg-green-100 p-6 rounded-lg text-center">
             <h2 className="text-gray-700 mb-2">Created Account</h2>
             <p className="text-3xl font-bold text-green-900">
-              {pending.createdAccount}{" "}
+              {pending.createdAccount}
             </p>
           </div>
           <div className="bg-red-100 p-6 rounded-lg text-center">
             <h2 className="text-gray-700 mb-2">Disabled Account</h2>
             <p className="text-3xl font-bold text-red-900">
-              {pending.disabledAccount}{" "}
+              {pending.disabledAccount}
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ function Home() {
         <HomeCharts />
       </div>
 
-      <div className="w-[20%] bg-white p-4 rounded-lg shadow-sm">
+      <div className="w-full md:w-[20%] bg-white p-4 rounded-lg shadow-sm">
         {/* Notification & Recent Seller section */}
         <div className="space-y-6">
           {/* Notification */}
