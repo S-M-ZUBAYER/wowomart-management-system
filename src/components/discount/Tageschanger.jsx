@@ -47,7 +47,7 @@ function TagChangeForm() {
     const fetchTags = async () => {
       try {
         const response = await axios.get(
-          "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/coupons-by-tag"
+          "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/coupons-by-tag"
         );
 
         setTagsList(response.data.result);
@@ -71,7 +71,7 @@ function TagChangeForm() {
       await Promise.all(
         inputValue.map(({ id }) =>
           axios.post(
-            "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/update",
+            "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/update",
             {
               update: 1,
               customerId: Number(id),
@@ -87,7 +87,7 @@ function TagChangeForm() {
           inputValue.map(({ email, id }) =>
             email
               ? axios.post(
-                  "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/couponUserList/create",
+                  "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/couponUserList/create",
                   {
                     title: selectedTag.title,
                     percentage: selectedTag.percentage,
@@ -122,10 +122,10 @@ function TagChangeForm() {
   };
 
   return (
-    <div className="w-[30vw] max-w-full px-6">
+    <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="max-h-48 overflow-y-auto space-y-1 pl-3">
+          <div className="max-h-48 overflow-y-auto space-y-1 pl-1 sm:pl-3">
             {inputValue.map(({ email }, index) => (
               <p key={index} className="text-[#90B4C8]">
                 {index + 1}. {email}
@@ -138,7 +138,7 @@ function TagChangeForm() {
             name="tag"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-[#004368] font-bold ">
+                <FormLabel className="text-[#004368] font-bold">
                   Select Tag
                 </FormLabel>
                 <Select
@@ -151,12 +151,15 @@ function TagChangeForm() {
                 >
                   <FormControl>
                     <SelectTrigger
-                      className="bg-white"
-                      style={{ backgroundColor: "white", outline: "none" }}
+                      className="bg-white focus:outline-none"
+                      style={{
+                        backgroundColor: "transparent",
+                        outline: "none",
+                      }}
                     >
                       <SelectValue
                         placeholder="Select a tag"
-                        className="text-[#004368] "
+                        className="text-[#004368]"
                       />
                     </SelectTrigger>
                   </FormControl>
@@ -165,9 +168,9 @@ function TagChangeForm() {
                       <SelectItem
                         key={tag.id}
                         value={tag.tag}
-                        className="text-[#004368]  "
+                        className="text-[#004368]"
                       >
-                        {tag.title} {`(${tag.percentage}) %`}
+                        {tag.title} ({tag.percentage}%)
                       </SelectItem>
                     ))}
                   </SelectContent>

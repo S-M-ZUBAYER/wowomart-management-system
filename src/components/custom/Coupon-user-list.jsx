@@ -42,6 +42,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { SquarePen, NotebookText, Trash2 } from "lucide-react";
 import image from "@/constants/image";
+import toast from "react-hot-toast";
 
 const columns = (handleOpenDialog) => [
   {
@@ -172,7 +173,7 @@ export function CouponUserList() {
         setLoading(true);
         setError(null);
         const response = await axios.get(
-          "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/allCouponUserList"
+          "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/allCouponUserList"
         );
         const result = response.data.result || [];
 
@@ -214,7 +215,7 @@ export function CouponUserList() {
       case "delete":
         axios
           .post(
-            "https://grozziie.zjweiting.com:57683/wowomart/api/shopify/deleteAndUpdate",
+            "https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/deleteAndUpdate",
             {
               id: selectedId,
               customerId: couponUser.customerId,
@@ -226,10 +227,12 @@ export function CouponUserList() {
             setApiData((prevData) =>
               prevData.filter((item) => item.id !== selectedId)
             );
+            toast.success("Coupon user deleted successfully");
           })
           .catch((error) => {
             console.error("Error deleting seller:", error);
             setDialogOpen(false);
+            toast.error("Failed to delete coupon user");
           });
         break;
       default:
