@@ -11,7 +11,7 @@ function PercentPage() {
   const fetchPercents = async () => {
     try {
       const res = await axios.get(
-        "https://grozziie.zjweiting.com:57683/wowomart/api/allDiscountPercent"
+        "https://grozziie.zjweiting.com:57683/tht/wowomart/api/allDiscountPercent"
       );
       const sorted = res.data.result.sort((a, b) => a.value - b.value);
       setPercents(sorted);

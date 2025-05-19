@@ -7,7 +7,7 @@ export default function PercentList({ percents, onDelete }) {
   const deletePercent = async (id) => {
     try {
       await axios.post(
-        `https://grozziie.zjweiting.com:57683/wowomart/api/discountPercent/delete/${id}`
+        `https://grozziie.zjweiting.com:57683/tht/wowomart/api/discountPercent/delete/${id}`
       );
       onDelete();
       setMessage({ type: "success", text: `✅ Deleted percent` });

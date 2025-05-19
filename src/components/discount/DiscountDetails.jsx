@@ -15,7 +15,7 @@ const DiscountDetails = () => {
     const fetchSellerDetails = async () => {
       try {
         const response = await axios.get(
-          `https://grozziie.zjweiting.com:57683/wowomart/api/shopify/segment-discounts/${discountId}`
+          `https://grozziie.zjweiting.com:57683/tht/wowomart/api/shopify/segment-discounts/${discountId}`
         );
         const sellerData = response?.data?.data || [];
         setDiscountDetails(sellerData);
